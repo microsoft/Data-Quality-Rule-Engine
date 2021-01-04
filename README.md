@@ -75,7 +75,10 @@ Note that the table names can be configured as per the user’s requirement by u
 
 2.	Set the Spark session:
 
-	   `dqObj.setSparkSession(spark)`
+	   ```
+	   var spark = SparkSession.builder.appName("<App Name>").getOrCreate()
+	   dqObj.setSparkSession(spark)
+	   ```
 
 3.	Make the required entries in the metadata tables, as explained in section [Metadata Driven](https://github.com/microsoft/Data-Quality-Rule-Engine#metadata-driven).
 4.	Invoke the method to apply the rules:
