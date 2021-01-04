@@ -19,7 +19,12 @@ The Data Quality Rule Engine is compatible with
 *	Databricks Cluster with Spark 3.0.x configuration (used only for schema check).
 
 ### To use the Data Quality Rule Engine in a project:
-Add the framework as a dependency to your project (Make sure you have dependency to org.scala-lang.):
+1. Install the Data Quality Rule Engine to a repository.
+
+2. Add a reference to the repository in pom.xml of your project under the tag:
+	`<repository>`
+
+3. Add the framework as a dependency to the pom.xml of your project (Make sure you have dependency to org.scala-lang.):
 ```
 <dependency> 
    <groupId>com.ms.dq</groupId> 
@@ -28,14 +33,14 @@ Add the framework as a dependency to your project (Make sure you have dependency
 </dependency>
 ```
 
-The, simply import the class in your code:
+4. Then, simply import the class in your code:
   
 `import com.ms.dq.framework.DQFramework`
 
-To use the Data Quality Rule Engine as a library in the Databricks notebook:
+### To use the Data Quality Rule Engine as a library in the Databricks notebook:
 
 Build the Data Quality Rule Engine jar and upload the library to the Databricks cluster.
-The, simply import the class in the notebook:
+Then, simply import the class in the notebook:
 
 `import com.ms.dq.framework.DQFramework`
   
@@ -72,7 +77,7 @@ Note that the table names can be configured as per the user’s requirement by u
 
 	   `dqObj.setSparkSession(spark)`
 
-3.	Make the required entries in the metadata tables.
+3.	Make the required entries in the metadata tables, as explained in section [Metadata Driven](https://github.com/microsoft/Data-Quality-Rule-Engine#metadata-driven).
 4.	Invoke the method to apply the rules:
 
      `val applyDq = dqObj.applyDq(dataframe,source,entity,schema,pipelineId)`
