@@ -52,7 +52,7 @@ Note that the table names can be configured as per the user’s requirement by u
 	  * Null Check
         * columnList: String. A comma separated list of the columns to apply null check on.
     * Unique Check
-        * columnList: String. A comma separated list of the columns to apply unique check on.
+        * columnList: Array of Strings. Each string is a comma separated list of columns, the combination of which should be unique. 
         * LatestRowIdentifier (Optional): String. An optional key in case you want the framework to return whether the record is the latest unique row for that column or not as well. Basically, refers to the column which should be used as an identifier for the latest row.
      * Orphan Edge Check
         * tableName: String. The delta table name for the source, entity on which DQ will run. 
