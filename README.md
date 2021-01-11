@@ -10,6 +10,7 @@ The data quality rule engine is a library that will help run data quality checks
 There are 2 ways of invoking the Data Quality Rules on a dataframe:
 *	Metadata driven.
 *	As a parameter to the function call.
+
 The details of the Data Quality runs, and the erroneous records are maintained in reporting tables. However, if the User wishes to not have these recorded, the DQ_LOG_RESULTS_FLAG in the application.properties file can be set to false.
 
 ### Requirements:
