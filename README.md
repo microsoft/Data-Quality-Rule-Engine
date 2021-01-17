@@ -123,6 +123,11 @@ For example, nullcheck is applied on createdDate, a new column named createdDate
    ![Results](https://github.com/microsoft/Data-Quality-Rule-Engine/blob/main/images/Results.png) 
 
 
+[Here](https://github.com/microsoft/Data-Quality-Rule-Engine/blob/main/sample/DataQualityRuleEngineUsageSample.scala) is a sample notebook that demonstrates the usage of the Data Quality Rule Engine.
+
+The Data Quality results from the reporting tables can be also used to derive insights. Below is a [sample dashboard](https://github.com/microsoft/Data-Quality-Rule-Engine/blob/main/sample/DataQualityInsights.pbix):
+
+   ![Data Quality Insights](https://github.com/microsoft/Data-Quality-Rule-Engine/blob/main/images/Data%20Quality%20Insights.PNG)
 
 ## Contributing
 
