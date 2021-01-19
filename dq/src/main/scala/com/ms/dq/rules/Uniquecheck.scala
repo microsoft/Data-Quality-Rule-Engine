@@ -98,7 +98,7 @@ class Uniquecheck extends SupportTrait {
           val colName_as_col = colName.replaceAll(",", "_")
           sqlexpression += ",case when count(*) over (partition by " + colName + ") > 1 then false else true end as " + colName_as_col + "_" + ruleName //replace with function call
           if (latestIdentifierCol != null) {
-            sqlexpression += ",case when row_number() over(partition by " + colName + " order by " + latestIdentifierCol + " )=1 then true else false end as LatestRow_" + colName_as_col
+            sqlexpression += ",case when row_number() over(partition by " + colName + " order by " + latestIdentifierCol + " desc)=1 then true else false end as LatestRow_" + colName_as_col
           }
           val dqAggKey = java.util.UUID.randomUUID.toString
           sqllogExpression = sqllogExpression + (if (sqllogExpression != "") " union all " else "") + "Select  to_json(struct(" + colListAsString + "))as Record,'" + sourcename + "' as Source,'" + entityname + "' as Entity,'" + colName + "' as ColumnName,'" + dqAggKey + "' as DqAggTableKey  from " + resultViewName + " where " + colName_as_col + "_" + ruleName + "= false"
@@ -218,7 +218,7 @@ class Uniquecheck extends SupportTrait {
           val sourcename = colEntitySourceMap(colName)(1)
           sqlexpression += ",case when count(*) over (partition by " + colName + ") > 1 then false else true end as " + colName_as_col + "_" + ruleName //replace with function call
           if (latestIdentifierCol != null) {
-            sqlexpression += ",case when row_number() over(partition by " + colName + " order by " + latestIdentifierCol + " )=1 then true else false end as LatestRow_" + colName_as_col
+            sqlexpression += ",case when row_number() over(partition by " + colName + " order by " + latestIdentifierCol + " desc)=1 then true else false end as LatestRow_" + colName_as_col
           }
           val dqAggKey = java.util.UUID.randomUUID.toString
           sqllogExpression = sqllogExpression + (if (sqllogExpression != "") " union all " else "") + "Select  to_json(struct(" + colListAsString + "))as Record,'" + sourcename + "' as Source,'" + entityname + "' as Entity,'" + colName + "' as ColumnName,'" + dqAggKey + "' as DqAggTableKey  from " + resultViewName + " where " + colName_as_col + "_" + ruleName + "= false"
